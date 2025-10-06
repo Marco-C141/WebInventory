@@ -1,0 +1,136 @@
+@import url("/static/css/colors.css");
+@import url("/static/css/sizes.css");
+
+h1 {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+#container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#form-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#image-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#image-container div {
+    min-width: 65%;
+    width: 65%;
+    aspect-ratio: 1/1;
+    border-radius: 12px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+}
+
+form {
+    width: 85%;
+}
+
+label {
+    font-weight: bold;
+    font-size: var(--text-size-big);
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+input, select {
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 2rem;
+
+    border: none;
+    border-bottom: solid 1px var(--text-color);
+    background-color: transparent;
+    padding-left: 0.5rem;
+    font-size: var(--text-size-medium);
+
+    outline: none;
+}
+
+input[type="file"] {
+    border: none;
+    margin-top: 1rem;
+    height: fit-content;
+    padding-left: 0;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: transparent;
+    border-radius: 8px;
+    font-weight: normal;
+    letter-spacing: 0.1rem;
+    padding: 0.1rem 2rem;
+    transition: all 0.2s ease-out;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: var(--primary);
+    color: white;
+
+}
+
+
+#submit-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+
+    button {
+        margin-right: 2rem;
+    }
+
+    button:hover {
+        border: solid 1px var(--text-color);
+        background-color: var(--light-green);
+    }
+
+    a:hover {
+        border: solid 1px var(--text-color);
+        background-color: var(--red);
+    }
+}
+
+#submit-container a, #submit-container button {
+    text-decoration: none;
+    font-size: calc(var(--text-size-big)*1.2);
+    padding: 0.3rem 1.5rem;
+    border: solid 1px var(--text-color);
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    border: solid 1px white;
+    background-color: transparent;
+    transition: all 0.2s ease-out;
+}
+
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label[for="img-clear_id"] {
+    display: none;
+}

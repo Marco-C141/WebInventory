@@ -1,0 +1,129 @@
+@import url("/static/css/colors.css");
+@import url("/static/css/sizes.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: var(--text-size-medium);
+    font-family: "Ibarra Real Nova";
+    color: var(--text-color);
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5vh;
+}
+
+nav {
+    width: 100vw;
+    text-align: right;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+}
+
+a {
+    margin-right: 1.5rem;
+}
+
+#logout-form {
+    display: inline;
+}
+
+#logout-form button {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#main-card {
+    margin-top: 1.5rem;
+    width: 90vw;
+    min-height: var(--main-card-min-height);
+    background-color: var(--main-card);
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 8px var(--shadow-dark-dim);
+    padding: 2rem;
+}
+
+h1 {
+    font-size: calc(var(--text-size-big)*2.5);
+    letter-spacing: 0.15rem;
+    margin-left: 1.5rem;
+}
+
+.product-card {
+    text-align: center;
+    width: 15%;
+    box-shadow: 0px 0px 20px 8px var(--product-card);
+    border: solid 1px black;
+    padding: 1.5rem 0rem;
+    margin: 2rem 1rem;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-img-container {
+    width: 70%;
+    aspect-ratio: 1/1;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 10px;
+}
+
+.product-edit {
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: -7%;
+    top: 3%;
+    border-radius: 50%;
+    transition: all 0.2s ease-out;
+}
+
+.product-edit i {
+    font-size: 150%;
+    padding: 0.3rem;
+}
+
+.product-edit:hover {
+    background-color: var(--accent);
+    i {
+        color: white;
+    }
+}
+
+
+
+.product-card p {
+    margin-bottom: 0.25rem;
+}
+
+.product-name {
+    font-weight: bolder;
+}
+
+.product-category {
+    display: none;
+}
+
+.product-price {
+    font-weight: bold;
+}

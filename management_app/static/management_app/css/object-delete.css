@@ -1,0 +1,43 @@
+@import url("/static/css/colors.css");
+@import url("/static/css/sizes.css");
+
+h1 {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    height: calc(var(--main-card-min-height) * 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a, button {
+    text-decoration: none;
+    font-size: calc(var(--text-size-big)*1.2);
+    padding: 0.3rem 1.5rem;
+    border: solid 1px var(--text-color);
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    border: solid 1px white;
+    background-color: transparent;
+    transition: all 0.2s ease-out;
+}
+
+button {
+    margin-right: 2rem;
+}
+
+button:hover {
+    border: solid 1px var(--text-color);
+    background-color: var(--red);
+}
+
+a:hover {
+    border: solid 1px var(--text-color);
+    background-color: var(--light-green);
+}

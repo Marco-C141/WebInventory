@@ -1,0 +1,47 @@
+{% extends "management_app/base.html" %}
+{% load static %}
+
+{% block title %} Inventario {% endblock %}
+
+{% block css %}
+    {{ block.super }}<link rel="stylesheet" href="{% static 'management_app/css/products.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% for category, products in products.items %}
+        <div class="category-container">
+            <h1>{{category.name}}</h1>
+            <div class="icons-container">
+                <button class="category-add">
+                    <a href="{% url 'product_add' %}">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a>
+                </button>
+                <button class="category-edit">
+                    <a href="{% url 'category_edit' pk=category.pk %}">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                </button>
+            </div>
+        </div>
+        <hr>
+        <div class="products-container">
+            {% for product in products %}
+
+                {% include "management_app/include/_product-card.html" with product=product %}
+
+                {% empty %}
+                    <div class="no-products-container">
+                        <h2>Sin productos</h2>
+                    </div>
+            {% endfor %}
+        </div>
+        {% empty %}
+            <div class="no-categories-container">
+                <h2>Sin categorías</h2>
+            </div>
+    {% endfor %}
+    <div class="add-category-container">
+        <a href="{% url 'categories_add' %}">Añadir nueva categoría</a>
+    </div>
+{% endblock %}

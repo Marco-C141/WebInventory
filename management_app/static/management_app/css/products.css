@@ -1,0 +1,120 @@
+@import url("/static/css/colors.css");
+@import url("/static/css/sizes.css");
+
+hr {
+    color: var(--shadow-dark-dim);
+    border-radius: var(--border-rad);
+}
+
+.category-container {
+    display: flex;
+}
+
+.products-container {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.category-container h1 {
+    flex-grow: 1;
+}
+
+.category-container .icons-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.category-add, .category-edit {
+    background-color: transparent;
+    border: none;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease-out;
+    height: 65%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-add:hover {
+    background-color: var(--green);
+    i {
+        color: white;
+    }
+}
+
+.category-edit:hover {
+    background-color: var(--accent);
+    i {
+        color: white;
+    }
+}
+
+.category-add a, .category-edit a {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.category-add a i, .category-edit a i {
+    font-size: 150%;
+    padding: 0.4rem;
+}
+
+.add-category-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-category-container a {
+    margin-top: 1.5rem;
+    background-color: transparent;
+    border: solid 1px white;
+    color: var(--text-color);
+    padding: 0.8rem;
+    font-size: var(--text-size-big);
+    font-weight: bold;
+    border-radius: var(--border-rad);
+    text-decoration: underline;
+    transition: all 0.4s ease-out;
+}
+
+.add-category-container a:hover {
+    background-color: var(--primary);
+    border: solid 1px var(--text-color);
+}
+
+button {
+    cursor: pointer;
+}
+
+.no-products-container {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-products-container h2 {
+    font-size: 3.5rem;
+    letter-spacing: 0.5rem;
+    color: var(--shadow-dark-dim);
+}
+
+.no-categories-container {
+    height: calc(var(--main-card-min-height) * 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-categories-container h2 {
+    font-size: 5rem;
+    letter-spacing: 0.5rem;
+    color: var(--shadow-dark-dim)
+}

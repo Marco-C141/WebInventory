@@ -1,0 +1,49 @@
+{% extends "management_app/base.html" %}
+{% load static %}
+
+{% block title %}
+    {% if form.instance.pk %}
+    Modificar producto
+    {% else %}
+    Agregar producto
+    {% endif %}
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}<link rel="stylesheet" href="{% static 'management_app/css/products-add.css' %}">
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}<script src="{% static 'management_app/js/products-form.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <h1>
+        {% if form.instance.pk %}
+        Modificar producto
+        {% else %}
+        Agregar producto
+        {% endif %}
+    </h1>
+    <div id="container">
+        <div id="form-container">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div id="submit-container">
+                    <button type="submit">Guardar</button>
+                    <a href="{% url 'products_list' %}">Cancelar</a>
+                    {% if form.instance.pk %}
+                        <a href="{% url 'product_delete' pk=form.instance.pk %}">Eliminar</a>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+
+        <div id="image-container">
+            <div>
+                <img id="img-preview" src="{% if form.instance.pk %}{{ form.instance.img.url }}{% else %}{% static 'images/default.svg' %}{% endif %}">
+            </div>
+        </div>
+    </div>
+{% endblock %}

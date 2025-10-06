@@ -1,0 +1,37 @@
+{% extends "management_app/base.html" %}
+{% load static %}
+
+{% block title %} 
+    {% if form.instance.pk %}
+    Modificar categoría
+    {% else %}
+    Agregar categoría
+    {% endif %}
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}<link rel="stylesheet" href="{% static 'management_app/css/categories-add.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>
+        {% if form.instance.pk %}
+        Modificar categoría
+        {% else %}
+        Agregar categoría
+        {% endif %}
+    </h1>
+    <div id="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div id="buttons-container">
+                <button type="submit">Guardar</button>
+                <a href="{% url 'products_list' %}">Cancelar</a>
+                {% if form.instance.pk %}
+                    <a href="{% url 'category_delete' pk=form.instance.pk %}">Eliminar</a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+{% endblock %}

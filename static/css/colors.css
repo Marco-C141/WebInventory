@@ -1,0 +1,16 @@
+:root {
+    --error: #ed5f55;
+    --bg-color: #fffaf1;
+    --text-color: #423f32;
+    --border-rad: 15px;
+    --shadow-light: #F2F0ED;
+    --shadow-dark: #3D403E99;
+    --shadow-dark-dim: #3D403E44;
+    --primary: #f6b982;
+    --accent: #ffa350;
+    --green: #b0dd94;
+    --light-green: #ceedca;
+    --main-card: #ffffff;
+    --product-card: #F2F0ED;
+    --red: #f57878;
+}
