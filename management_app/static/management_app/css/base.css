@@ -60,8 +60,7 @@ h1 {
 .product-card {
     text-align: center;
     width: 15%;
-    box-shadow: 0px 0px 20px 8px var(--product-card);
-    border: solid 1px black;
+    box-shadow: 0px 0px 30px 2px var(--shadow-dark-dim);
     padding: 1.5rem 0rem;
     margin: 2rem 1rem;
     border-radius: 12px;

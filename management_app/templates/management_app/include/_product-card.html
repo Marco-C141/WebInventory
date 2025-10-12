@@ -1,5 +1,5 @@
 <div class="product-card">
-    <a href="{% url 'product_edit' pk=product.pk %}" class="product-edit">
+    <a href="{% url 'product_edit' pk=product.pk %}?next={{ request.path }}" class="product-edit">
         <i class="fa fa-cog" aria-hidden="true"></i>
     </a>
     <div class="product-img-container">

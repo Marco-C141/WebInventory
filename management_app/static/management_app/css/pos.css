@@ -1,0 +1,252 @@
+@import url("/static/css/colors.css");
+@import url("/static/css/sizes.css");
+
+#container {
+    display: flex;
+
+    #pos-container {
+        flex-grow: 1;
+        max-width: 70%;
+    }
+
+    #pos-summary {
+        flex-grow: 1;
+        max-width: 30%;
+    }
+}
+
+#pos-container {
+    padding: 1rem;
+    display: flex;
+    min-height: calc(var(--main-card-min-height)*0.8);
+    flex-direction: column;
+
+    #search-section {
+        flex-grow: 1;
+    }
+
+    #pos-cart {
+        flex-grow: 20;
+    }
+}
+
+#search-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-section i {
+    position: absolute;
+    right: 7%;
+}
+
+#product-search {
+    width: 90%;
+    border-radius: 12px;
+    padding: 0.5rem;
+    letter-spacing: 0.1rem;
+}
+
+#product-search:focus {
+    outline: none;
+}
+
+#pos-cart {
+    margin-top: 0.5rem;
+}
+
+h2 {
+    font-size: calc(var(--text-size-big)*2);
+    font-weight: bold;
+}
+
+#pos-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: solid 1px black;
+
+    h2, h3 {
+        letter-spacing: 0.2rem;
+    }
+}
+
+#pos-summary h3 {
+    margin: 0.4rem auto 0.8rem auto;
+    font-size: calc(var(--text-size-big)*1.5);
+    font-weight: normal;
+}
+
+#pos-summary button {
+    text-decoration: none;
+    font-size: calc(var(--text-size-big)*1.2);
+    padding: 0.3rem 1.5rem;
+    border: solid 1px var(--text-color);
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    border: solid 1px var(--text-color);
+    background-color: var(--primary);
+    transition: all 0.2s ease-out;
+}
+
+#pos-summary button:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+
+/* Search function */
+#search-results {
+    position: absolute;
+    top: 100%;
+    left: 5%;
+    display: none;
+    width: 90%;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px 4px var(--shadow-dark-dim);
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    margin-bottom:0.6rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.search-item:last-child {
+    margin-bottom: 0;
+}
+
+.search-item-img-container {
+    width: 7%;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+}
+
+.search-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.search-item span {
+    margin-left: 0.5rem;
+}
+
+.search-item-price {
+    position: absolute;
+    right: 2%;
+}
+
+/* Cart function */
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.6rem;
+}
+
+.cart-item-img-container {
+    width: 80px;
+    aspect-ratio: 1/1;
+    border-radius: 12px;
+}
+
+.cart-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+}
+
+.cart-item-name {
+    margin-left: 1rem;
+    font-size: calc(var(--text-size-big)*1.1);
+
+}
+
+.cart-item-left {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    padding-right: 2rem;
+}
+
+.cart-item-price {
+    width: 20%;
+    text-align: center;
+    font-size: calc(var(--text-size-big)*1.2);
+    font-weight: bold;
+}
+
+.quantity-controls {
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls input {
+    width: 80%;
+    text-decoration: underline;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: calc(var(--text-size-big)*1.2);
+}
+
+.quantity-controls input::-webkit-outer-spin-button,
+.quantity-controls input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-controls input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.quantity-btn, .cart-item-rm {
+    text-decoration: none;
+    font-size: calc(var(--text-size-big)*1.1);
+    padding: 0.2rem 0.5rem;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.2s ease-out;
+}
+
+.quantity-btn:hover {
+    background-color: var(--accent);
+    border: solid 1px var(--text-color);
+    color: white;
+}
+.cart-item-rm:hover {
+    background-color: var(--red);
+    border: solid 1px var(--text-color);
+    color: white;
+}
+
+.cart-item-rm {
+    margin: auto 1rem;
+}

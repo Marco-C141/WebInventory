@@ -32,7 +32,7 @@
                 {{ form.as_p }}
                 <div id="submit-container">
                     <button type="submit">Guardar</button>
-                    <a href="{% url 'products_list' %}">Cancelar</a>
+                    <a href="{{ next_url }}">Cancelar</a>
                     {% if form.instance.pk %}
                         <a href="{% url 'product_delete' pk=form.instance.pk %}">Eliminar</a>
                     {% endif %}

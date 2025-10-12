@@ -1,0 +1,38 @@
+{% extends "management_app/base.html" %}
+{% load static %}
+
+{% block title %}Vender{% endblock %}
+
+{% block css %}
+    {{ block.super }}<link rel="stylesheet" href="{% static 'management_app/css/pos.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Vender</h1>
+    <div id="container">
+        <div id="pos-container">
+            <div id="search-section">
+                <i class="fa fa-search" aria-hidden="true"></i><input type="text" id="product-search" placeholder="Buscar producto...">
+                <div id="search-results"></div>
+            </div>
+            <div id="pos-cart">
+                <h2>Productos</h2>
+                <div id="pos-cart-items-container">
+                </div>
+            </div>
+        </div>
+        <div id="pos-summary">
+            <h2>Total</h2>
+            <h3 id="total-price">$0.00</h3>
+            <button id="confirm-sale">Confirmar</button>
+        </div>
+    </div>
+    <script>
+        // Parse all products returned by the view
+        let allProducts = JSON.parse('{{ products|escapejs }}');
+    </script>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}<script src="{% static 'management_app/js/pos.js' %}"></script>
+{% endblock %}

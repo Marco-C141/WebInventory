@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+}
+
+#cards-container {
+    display: flex;
+}
+
+.no-products-container {
+    width: 100%;
+    height: calc(var(--main-card-min-height) * 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-products-container h2 {
+    font-size: 3.5rem;
+    letter-spacing: 0.5rem;
+    color: var(--shadow-dark-dim);
+}

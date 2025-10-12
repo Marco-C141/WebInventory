@@ -1,0 +1,23 @@
+{% extends "management_app/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block css %}
+    {{ block.super }}<link rel="stylesheet" href="{% static 'management_app/css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Productos a terminarse pronto</h1>
+    <div id="cards-container">
+        {% for product in low_stock_products %}
+
+            {% include "management_app/include/_product-card.html" with product=product %}
+
+            {% empty %}
+            <div class="no-products-container">
+                <h2>Sin productos por terminarse</h2>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
