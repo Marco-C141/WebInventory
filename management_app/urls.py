@@ -6,7 +6,7 @@ from .views import products_list, products_add, categories_add, products_edit, c
 
 urlpatterns = [
     # Automatically redirect to login
-    path('', RedirectView.as_view(url='/accounts/login/', permanent=False)),
+    path("", RedirectView.as_view(url='accounts/login/', permanent=False)),
 
     path("products/", products_list, name="products_list"),
     path("products/add", products_add, name="product_add"),
