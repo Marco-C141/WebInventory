@@ -1,9 +1,10 @@
 from django.urls import path, include
 
 from .views import products_list, products_add, categories_add, products_edit, categories_edit, products_delete, \
-    categories_delete, dashboard, pos_view, process_sale
+    categories_delete, dashboard, pos_view, process_sale, CustomLoginView
 
 urlpatterns = [
+    path("", CustomLoginView.as_view(), name="login"),
     path("products/", products_list, name="products_list"),
     path("products/add", products_add, name="product_add"),
     path("products/edit/<int:pk>/", products_edit, name="product_edit"),
