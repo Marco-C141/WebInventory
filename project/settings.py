@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-fnj6ix7qq1pz2j@%db&bp&ke!-lwq6r@wyov873hvr1r)+5=zz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["abarrotes-teo.onrender.com", "127.0.0.1", "0.0.0.0"]
+ALLOWED_HOSTS = ["abarrotes-teo.onrender.com", "127.0.0.1", "0.0.0.0", "localhost"]
 
 CSRF_TRUSTED_ORIGINS = ["https://abarrotes-teo.onrender.com"]
 

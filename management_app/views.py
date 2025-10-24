@@ -49,6 +49,8 @@ def products_list(request):
 @login_required()
 def products_add(request):
     """ This method redirects the user to the create product form template, or process the submitted form """
+    next_url = request.GET.get('next')
+
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -57,7 +59,10 @@ def products_add(request):
 
     form = ProductForm()
 
-    return render(request, "management_app/products-form.html", {"form": form})
+    return render(request, "management_app/products-form.html", {
+        "form": form,
+        "next_url": next_url,
+    })
 
 @login_required()
 def products_edit(request, pk):

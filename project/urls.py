@@ -19,10 +19,13 @@ from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import RedirectView
 
 from management_app.views import CustomLoginView
 
 urlpatterns = [
+    # Automatically redirect to login
+    path("", RedirectView.as_view(url='accounts/login', permanent=False)),
     # Admin page, meant for the dev
     path("admin/", admin.site.urls),
     # Overwritten login view

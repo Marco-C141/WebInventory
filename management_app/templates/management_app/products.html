@@ -13,7 +13,7 @@
             <h1>{{category.name}}</h1>
             <div class="icons-container">
                 <button class="category-add">
-                    <a href="{% url 'product_add' %}">
+                    <a href="{% url 'product_add' %}?next={{ request.path }}">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </a>
                 </button>
