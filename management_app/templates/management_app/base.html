@@ -3,6 +3,7 @@
     <head>
         {% load static %}
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}{% endblock %}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +29,38 @@
             {% block content%}
             {% endblock %}
         </div>
+
+        <div class="custom-alert-overlay" id="customAlert">
+            <div class="custom-alert-box">
+                <h2 class="alert-title">Action Required</h2>
+                <p class="alert-message">This is where the alert's detailed message will appear.</p>
+                <div class="alert-buttons">
+                    <button id="alertBtnConfirm" class="alert-btn alert-btn-confirm">Entendido</button>
+                </div>
+            </div>
+        </div>
     </body>
+    <script>
+        function showAlert(title, message) {
+            const customAlert = document.getElementById('customAlert');
+            const alertTitle = customAlert.querySelector('.alert-title');
+            const alertMessage = customAlert.querySelector('.alert-message');
+
+            // Set the content
+            alertTitle.textContent = title;
+            alertMessage.textContent = message;
+
+            // Show the alert
+            customAlert.classList.add('active');
+
+            // Example of how to handle button clicks
+            const btnConfirm = document.getElementById('alertBtnConfirm');
+
+            btnConfirm.onclick = () => {
+                console.log("Confirmed!");
+                customAlert.classList.remove('active');
+            };
+        }
+    </script>
     {% block js %}{% endblock %}
 </html>

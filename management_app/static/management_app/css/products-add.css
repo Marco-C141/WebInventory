@@ -134,3 +134,57 @@ input[type="checkbox"] {
 label[for="img-clear_id"] {
     display: none;
 }
+
+/*
+=====================================================
+    Design for mobile
+=====================================================
+*/
+@media screen and (max-width: 768px) {
+    h1 {
+        /* Reduce margin to save vertical space */
+        margin-bottom: 1.5rem;
+        font-size: 2.5rem; /* Slightly smaller title */
+    }
+
+    #container {
+        /* Stack the image and form vertically */
+        flex-direction: column-reverse;
+    }
+
+    #image-container {
+        /* Make the image container take up the full width */
+        width: 100%;
+        margin-bottom: 2rem; /* Add space between image and form */
+    }
+
+    #form-container {
+        /* Make the form container take up the full width */
+        width: 100%;
+    }
+
+    #image-container div {
+        /* Make the image preview slightly larger on mobile */
+        width: 80%;
+    }
+
+    #submit-container {
+        /* Stack the action buttons vertically */
+        flex-direction: column;
+        align-items: center; /* Center the stacked buttons */
+        gap: 1rem; /* Add space between the stacked buttons */
+    }
+
+    #submit-container button {
+        /* Remove the right margin intended for horizontal layout */
+        margin-right: 0;
+    }
+
+    #submit-container a,
+    #submit-container button {
+        /* Make buttons wider for easier tapping */
+        width: 80%;
+        text-align: center;
+        margin: auto;
+    }
+}

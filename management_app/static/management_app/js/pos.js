@@ -49,7 +49,7 @@ cartItemsContainer.addEventListener('change', (e) => {
         if (isNaN(newQuantity) || newQuantity < 1) {
             newQuantity = 1;
         } else if (newQuantity > cartItem.stock) {
-            alert(`Solo hay ${cartItem.stock} unidades disponibles.`);
+            showAlert("Cantidad insuficiente" ,`Solo hay ${cartItem.stock} unidades disponibles.`);
             newQuantity = cartItem.stock;
         }
 
@@ -69,7 +69,7 @@ cartItemsContainer.addEventListener('click', (e) => {
             cartItem.quantity++;
             renderCart();
         } else {
-            alert('No hay suficientes unidades!');
+            showAlert("Error", 'No hay suficientes unidades!');
         }
     } else if (target.classList.contains('decrease-btn')) {
         if (cartItem.quantity > 1) {
@@ -159,7 +159,7 @@ const confirmSaleBtn = document.getElementById('confirm-sale');
 
 confirmSaleBtn.addEventListener('click', async () => {
     if (cart.length === 0) {
-        alert('¡El carro está vacío!');
+        showAlert("Error", '¡El carro está vacío!');
         return;
     }
 
@@ -174,7 +174,7 @@ confirmSaleBtn.addEventListener('click', async () => {
     const result = await response.json();
 
     if (result.status === 'success') {
-        alert("Venta realizada exitosamente");
+        showAlert("","Venta realizada exitosamente");
 
         // Update stock levels in the main 'allProducts' list
         result.updated_products.forEach(updatedProduct => {
@@ -190,6 +190,6 @@ confirmSaleBtn.addEventListener('click', async () => {
         cart = []; // Clear the cart
         renderCart(); // Update the display
     } else {
-        alert(`Error: ${result.message}`);
+        showAlert("Error",`Error: ${result.message}`);
     }
 });

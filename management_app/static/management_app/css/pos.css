@@ -250,3 +250,78 @@ h2 {
 .cart-item-rm {
     margin: auto 1rem;
 }
+
+/*
+=====================================================
+    Design for mobile
+=====================================================
+*/
+@media screen and (max-width: 768px) {
+    #container {
+        /* Stack the main sections vertically */
+        flex-direction: column;
+    }
+
+    #container #pos-container,
+    #container #pos-summary {
+        /* Allow sections to take full width */
+        max-width: 100%;
+    }
+
+    #search-results {
+        width: 120%;
+        max-width: 98vw;
+        left: -9%;
+    }
+
+    .search-item span {
+        font-size: 1rem;
+    }
+
+    #pos-summary {
+        /* Replace left border with a top border for vertical layout */
+        border-left: none;
+        border-top: solid 1px black;
+        padding: 1.5rem 0; /* Add vertical padding */
+        margin-top: 1rem;  /* Add space above */
+    }
+
+    .search-item-img-container {
+        /* Make search result image larger and more visible */
+        width: 15%;
+    }
+
+    .cart-item {
+        /* Stack the two halves of the cart item */
+        flex-direction: column;
+        align-items: flex-start; /* Align content to the left */
+        border-bottom: 1px solid var(--shadow-dark-dim); /* Add separator */
+        padding-bottom: 1rem;
+    }
+
+    .cart-item-left,
+    .cart-item-right {
+        /* Both sections take full width */
+        width: 100%;
+    }
+
+    .cart-item-right {
+        /* Justify content with space between for a clean look */
+        justify-content: space-between;
+        padding-right: 0; /* Remove padding */
+        margin-top: 0.8rem; /* Add space between left and right sections */
+    }
+
+    .cart-item-name {
+        font-size: var(--text-size-big); /* Slightly smaller name */
+    }
+
+    .cart-item-price {
+        font-size: var(--text-size-big);
+    }
+
+    .quantity-btn {
+        margin: 0px;
+        padding: 0px;
+    }
+}

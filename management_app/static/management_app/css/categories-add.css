@@ -76,3 +76,39 @@ input:focus {
     text-align: center;
 }
 
+/*
+=====================================================
+    Design for mobile
+=====================================================
+*/
+@media screen and (max-width: 768px) {
+    h1 {
+        /* Reduce font size to be more proportional on mobile */
+        font-size: 2.2rem;
+        padding: 0 1rem; /* Prevent text from touching screen edges */
+    }
+
+    form {
+        /* Make the form much wider to use the available space */
+        width: 90%;
+    }
+
+    #buttons-container {
+        /* Stack the buttons vertically */
+        flex-direction: column;
+        align-items: center; /* Center the stacked buttons */
+        gap: 1rem; /* Add vertical space between buttons */
+    }
+
+    #buttons-container button {
+        /* Remove margin used for horizontal layout */
+        margin-right: 0;
+    }
+
+    #buttons-container button,
+    #buttons-container a {
+        /* Make buttons wider for easier tapping */
+        width: 100%;
+        margin-right: 0;
+    }
+}

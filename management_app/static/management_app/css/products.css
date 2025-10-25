@@ -118,3 +118,41 @@ button {
     letter-spacing: 0.5rem;
     color: var(--shadow-dark-dim)
 }
+
+/*
+=====================================================
+    Design for mobile
+=====================================================
+*/
+@media screen and (max-width: 768px) {
+    .category-container {
+        /* Stack the title and icons vertically */
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .category-container h1 {
+        /* Make the title centered and give it some space below */
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .category-container .icons-container {
+        /* Center the icons below the title */
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Target both "no items" messages at once */
+    .no-products-container h2,
+    .no-categories-container h2 {
+        /* Significantly reduce font size for mobile */
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+        text-align: center;
+    }
+
+    .products-container {
+        margin-bottom: 1.5rem;
+    }
+}

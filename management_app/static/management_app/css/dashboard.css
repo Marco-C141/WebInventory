@@ -19,3 +19,25 @@ h1 {
     letter-spacing: 0.5rem;
     color: var(--shadow-dark-dim);
 }
+
+/*
+=====================================================
+    Design for mobile
+=====================================================
+*/
+@media screen and (max-width: 768px) {
+    #cards-container {
+        /* Stack the cards vertically instead of in a row */
+        flex-direction: column;
+        /* Center the cards horizontally in the column layout */
+        align-items: center;
+    }
+
+    .no-products-container h2 {
+        /* Reduce font size to fit better on small screens */
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+        /* Ensure text wraps if it's too long */
+        text-align: center;
+    }
+}

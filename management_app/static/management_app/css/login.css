@@ -108,3 +108,37 @@ button:hover {
     color: white;
     background-color: var(--accent);
 }
+
+/*
+=====================================================
+    Design for mobile
+=====================================================
+*/
+@media screen and (max-width: 768px) {
+    #form-container {
+        /* Make the form container much wider to use the available space */
+        width: 90vw;
+        /* Allow height to grow with content, preventing overflow */
+        height: auto;
+        min-height: 65vh;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    form {
+        /* Widen the form itself inside the container */
+        width: 85%;
+    }
+
+    h1 {
+        /* Reduce the heading size to prevent it from breaking the layout */
+        font-size: 4rem;
+        margin-bottom: 2.5rem;
+        letter-spacing: 0.2rem;
+    }
+
+    button {
+        /* Make the button a slightly larger and easier tap target */
+        padding: 0.8rem 1.5rem;
+    }
+}

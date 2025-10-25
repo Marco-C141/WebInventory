@@ -126,3 +126,160 @@ h1 {
 .product-price {
     font-weight: bold;
 }
+
+/*
+=====================================================
+    Design for mobile
+=====================================================
+*/
+@media screen and (max-width: 768px) {
+    #main-card {
+        /* Use more of the screen and reduce padding */
+        width: 95vw;
+        padding: 1rem;
+    }
+
+    h1 {
+        /* Reduce heading size for smaller screens */
+        font-size: calc(var(--text-size-big) * 1.8);
+        text-align: center;
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    .product-card {
+        /* Change width to create a two-column grid */
+        width: 50%;
+        margin: 1.5rem 4%; /* Adjust margin for the new layout */
+        padding: 1rem 0;
+    }
+
+    .product-edit i {
+        font-size: 120%; /* Slightly smaller icon */
+    }
+
+    nav a {
+        font-size: var(--text-size-small);
+        margin-right: 0.7rem;
+    }
+
+    nav {
+        margin: 1rem 0 0 0;
+    }
+}
+
+/*
+=====================================================
+    Custom Alert Box Design
+=====================================================
+*/
+
+/* The semi-transparent background overlay */
+.custom-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Darkens the background */
+    z-index: 1000; /* Ensures it's on top of everything */
+
+    /* Centering the alert box inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Hiding and transition for smooth appearance */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* This class will be toggled with JavaScript to show the alert */
+.custom-alert-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* The main alert box */
+.custom-alert-box {
+    background-color: var(--main-card); /* Using your existing card color */
+    padding: 2rem 2.5rem;
+    border-radius: var(--border-rad); /* Using your existing border-radius */
+    box-shadow: 0px 0px 25px 10px var(--shadow-dark); /* Using your existing shadow */
+    width: 90%;
+    max-width: 450px; /* Prevents it from being too wide on desktops */
+    text-align: center;
+
+    /* Smooth pop-in animation */
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.custom-alert-overlay.active .custom-alert-box {
+    transform: scale(1);
+}
+
+.alert-title {
+    font-size: calc(var(--text-size-big) * 1.5);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.1rem;
+}
+
+.alert-message {
+    font-size: var(--text-size-medium);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.alert-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Creates space between buttons */
+}
+
+/* General button styling, matching your app's design */
+.alert-btn {
+    text-decoration: none;
+    font-size: calc(var(--text-size-big) * 1.1);
+    padding: 0.4rem 1.8rem;
+    border: solid 1px var(--text-color);
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.2s ease-out;
+    flex-grow: 1; /* Allows buttons to share space */
+    max-width: 150px;
+}
+
+/* Specific styling for Confirm/Action button */
+.alert-btn-confirm {
+    background-color: var(--primary); /* Example: using your primary color */
+    border-color: var(--primary);
+}
+
+.alert-btn-confirm:hover {
+    background-color: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/*
+=====================================================
+    Alert-box mobile design
+=====================================================
+*/
+@media screen and (max-width: 768px) {
+    .alert-buttons {
+        /* Stack buttons vertically on small screens */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .alert-btn {
+        width: 100%; /* Make buttons full-width */
+        max-width: none;
+    }
+}
