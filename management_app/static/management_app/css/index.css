@@ -1,0 +1,410 @@
+@import url("/static/css/colors.css");
+@import url("/static/css/sizes.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: var(--text-size-big);
+    font-family: "Space Mono";
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    font-family: "Ibarra Real Nova";
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*--------------------------------< Background >--------------------------------*/
+
+#background {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;}
+
+#background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    filter: blur(2px);
+}
+
+/*--------------------------------< Welcome block >--------------------------------*/
+
+#welcome-container {
+    width: 35vw;
+    height: 70vh;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: var(--bg-color);
+    border-radius: var(--border-rad);
+    box-shadow: 0px 0px 20px 8px var(--shadow-dark);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome-container h1 {
+    font-size: 5.5rem;
+    margin-left: 0;
+    margin-bottom: 1rem;
+    letter-spacing: 0.3rem;
+    text-align: center;
+}
+
+#welcome-container h2 {
+    font-family: "Space Mono";
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+button {
+    display: block;
+    margin: 1.5rem 0;
+    background-color: var(--primary);
+    border-radius: 5px;
+    padding: 0.5rem 1.3rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+    margin-right: 0;
+    text-decoration: none;
+}
+
+#login-button {
+    font-size: 2.5rem;
+}
+
+button:hover {
+    color: white;
+    background-color: var(--accent);
+}
+
+
+/*--------------------------------< Products section >--------------------------------*/
+
+#products-section h1 {
+    font-size: calc(var(--text-size-big)*2.5);
+    letter-spacing: 0.15rem;
+    margin-left: 2rem;
+}
+
+#products-section {
+    padding-top: 3rem;
+    width: 90vw;
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: calc(var(--text-size-big)*1.5);  
+        text-align: center;      
+    }
+
+    h3 {
+        font-size: calc(var(--text-size-big)*1.2);        
+    }
+}
+
+hr {
+    margin-bottom: 3rem;
+}
+
+.category-container {
+    background-color: white;
+    border-radius: 18px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0px 0px 30px 2px var(--shadow-dark-dim);
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem; /* This adds spacing between all grid items (cards) */
+    padding: 1rem; /* Optional: Adds some space around the whole grid */
+    justify-items: center;
+    padding-bottom: 5rem;
+}
+
+
+.product-card {
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 0px 30px 2px var(--shadow-dark-dim);
+    padding: 1.5rem 0rem;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 0; 
+
+    background-color: white;
+    max-width: 280px;
+}
+
+.product-img-container {
+    width: 70%;
+    aspect-ratio: 1/1;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 10px;
+}
+
+.product-card p {
+    margin-bottom: 0.25rem;
+}
+
+.product-name {
+    font-weight: bolder;
+}
+
+.product-category {
+    display: none;
+}
+
+.product-price {
+    font-weight: normal;
+}
+
+.product-stock {
+    font-weight: lighter;
+}
+
+.no-products-container {
+    grid-column: 1 / -1; 
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #555; 
+}
+
+.no-categories-container {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    h3 {
+        text-align: center;
+    }
+}
+
+/*--------------------------------< About us >--------------------------------*/
+#about-section * {
+    color: var(--bg-color);
+}
+
+#about-section {
+    padding: 5rem;
+    width: 100vw;
+    background-color: var(--text-color);
+    
+    box-sizing: border-box; 
+}
+
+#about-section h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+#about-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+}
+
+#about-info {
+    flex-basis: 50%; /* Takes up 50% of the width */
+    padding-right: 2rem; /* Adds spacing between info and map */
+    box-sizing: border-box; /* Include padding in the 50% width */
+}
+
+#about-info h2 {
+    font-size: 2rem;
+}
+
+#about-info ul {
+    list-style-position: inside;
+    margin-bottom: 2rem;
+}
+
+#about-map {
+    flex-basis: 50%; /* Takes up the other 50% */
+    box-sizing: border-box; /* Include padding in the 50% width */
+}
+
+
+#about-map iframe {
+    width: 100%; /* Makes the map fill its 50% container */
+    height: 450px; /* Keeps your desired height */
+}
+
+
+
+
+
+
+
+
+/*
+  These styles will ONLY apply on screens 768px wide or smaller.
+  This version creates a TWO-COLUMN grid for products on mobile.
+*/
+@media (max-width: 768px) {
+
+    /*--------------------------------< Welcome block >--------------------------------*/
+
+    #welcome-container {
+        /* Make it fill more of the screen */
+        width: 90vw;
+        height: auto; /* Let content define height */
+        padding: 2rem 1rem; /* Add some padding */
+    }
+
+    #welcome-container h1 {
+        /* Scale down font size */
+        font-size: 3.5rem; 
+        letter-spacing: 0.1rem;
+    }
+
+    #welcome-container h2 {
+        /* Scale down font size */
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 0 1rem; /* Prevent text from touching edges */
+    }
+
+    #login-button {
+        /* Scale down button font size */
+        font-size: 1.75rem;
+    }
+
+    /*--------------------------------< Products section >--------------------------------*/
+
+    #products-section {
+        width: 95vw; /* A tiny bit wider */
+        padding-top: 2rem;
+    }
+
+    #products-section h1 {
+        /* Scale down font size */
+        font-size: 2.5rem;
+        letter-spacing: 0.1rem;
+        margin-left: 0;
+        text-align: center; /* Center on mobile */
+    }
+
+    .category-container {
+        /* Reduce padding on mobile */
+        padding: 1rem 0.5rem;
+    }
+
+    .products-container {
+        /* --- THIS IS THE CHANGE --- */
+        /* Create a two-column grid on mobile */
+        grid-template-columns: repeat(2, 1fr);
+        /* Reduce gap to fit items better */
+        gap: 1rem; 
+    }
+
+    .product-card {
+        /* Allow card to be smaller than the desktop max-width */
+        max-width: none; 
+        padding: 1rem 0.5rem;
+    }
+
+    .product-name {
+        font-size: 1rem;
+    }
+
+    .product-price {
+        font-size: 0.9rem;
+    }
+
+    .product-stock {
+        font-size: 0.8rem;
+    }
+
+    .product-img-container {
+        width: 80%; /* Make image slightly larger part of card */
+    }
+
+    /*--------------------------------< About us >--------------------------------*/
+
+    #about-section {
+        /* Reduce padding on small screens */
+        padding: 3rem 1.5rem;
+    }
+
+    #about-section h1 {
+        /* Scale down font size */
+        font-size: 2.5rem;
+    }
+
+    #about-container {
+        /* Stack them vertically */
+        flex-direction: column; 
+    }
+
+    /* Make both sections full-width on mobile */
+    #about-info,
+    #about-map {
+        flex-basis: 100%;
+    }
+
+    #about-info {
+        padding-right: 0; /* Remove side padding */
+        margin-bottom: 2rem; /* Add space between stacked items */
+    }
+
+    #about-info h2 {
+        font-size: 1.75rem; /* Scale down h2 */
+    }
+
+    #about-map iframe {
+        /* Reduce height for smaller screens */
+        height: 300px; 
+    }
+}

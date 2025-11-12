@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="{% static 'management_app/css/index.css' %}">
+    </head>
+    <body>
+        <section id="welcome-section">
+            <div id="background">
+                <img src="{% static 'management_app/images/background.jpg' %}">
+            </div>
+            <div id="welcome-container">
+                <h1>Abarrotes Teo</h1>
+                <h2>¡Fresco y Cercano!</h2>
+                <a href="#products-section"><button>Ver productos</button></a>
+                <a id="login-button" href="{% url 'login' %}"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+            </div>
+        </section>
+
+        <section id="products-section">
+            <h1>Productos disponibles</h1>
+            <hr>
+
+            {% for category, products in products.items %}
+            <div class="category-container">
+                <h2>{{category.name}}</h2>
+                <div class="products-container">
+                    {% for product in products %}
+
+                        {% include "management_app/include/_product-card-client.html" with product=product %}
+
+                        {% empty %}
+                            <div class="no-products-container">
+                                <h3>Espera a que agrueguemos más productos</h3>
+                            </div>
+                    {% endfor %}
+                </div>
+            </div>
+                {% empty %}
+                    <div class="no-categories-container">
+                        <h3>Espera a que agreguemos más productos</h3>
+                    </div>
+            {% endfor %}
+
+        </section>
+
+        <section id="about-section">
+            <h1>Sobre nosotros</h1>
+            <div id="about-container">
+                <div id="about-info">
+                    <h2>Horarios de atención</h2> 
+                    <ul>                   
+                        <li>Lunes a viernes: 08:00 - 20:00</li>
+                        <li>Sabado y domingo: 08:00 - 16:00</li>
+                    </ul>
+                    <h2>Ubicación</h2>
+                    <p>Oaxtepec, Mor, Colonia El Partidor. <br>Junto al Hotel Oaxtepec y el restaurante Los Huajes</p>
+                </div>
+                <div id="about-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d483.17643410868!2d-98.9837705965927!3d18.89762979023125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1762926094319!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script>
+        function showAlert(title, message) {
+            const customAlert = document.getElementById('customAlert');
+            const alertTitle = customAlert.querySelector('.alert-title');
+            const alertMessage = customAlert.querySelector('.alert-message');
+
+            // Set the content
+            alertTitle.textContent = title;
+            alertMessage.textContent = message;
+
+            // Show the alert
+            customAlert.classList.add('active');
+
+            // Example of how to handle button clicks
+            const btnConfirm = document.getElementById('alertBtnConfirm');
+
+            btnConfirm.onclick = () => {
+                console.log("Confirmed!");
+                customAlert.classList.remove('active');
+            };
+        }
+    </script>
+</html>

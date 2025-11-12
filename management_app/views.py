@@ -25,6 +25,24 @@ class CustomLoginView(LoginView):
         return reverse_lazy("home")
 
 
+def welcome_page(request):
+    """ This page will only show all the products in a grid """
+    categories = Category.objects.all()
+    products = {}
+
+    for category in categories:
+        products_in_category = Product.objects.filter(category=category)
+        products[category] = products_in_category
+
+    context = {
+        "products": products
+    }
+
+
+    return render(request, "management_app/index.html", {"products": products})
+
+
+
 @login_required
 def products_list(request):
     """ This method returns all products grouped by category in a map

@@ -21,11 +21,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
 
-from management_app.views import CustomLoginView
+import management_app
+from management_app.views import CustomLoginView, welcome_page
+
 
 urlpatterns = [
     # Automatically redirect to login
-    path("", RedirectView.as_view(url='accounts/login', permanent=False)),
+    path("", RedirectView.as_view(url='index', permanent=False)),
     # Admin page, meant for the dev
     path("admin/", admin.site.urls),
     # Overwritten login view
@@ -33,6 +35,7 @@ urlpatterns = [
     # Default logout behaviour, it is redirected to the login view base on the project's settings
     path("accounts/", include('django.contrib.auth.urls')),
 
+    path("index/", welcome_page, name="index"),
 
     path("management/", include("management_app.urls"))
 ]
