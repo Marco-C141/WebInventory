@@ -31,7 +31,10 @@ searchInput.addEventListener('input', () => {
                 <img src="${imageUrl}" class="search-item-img">
             </div>
             <span class="search-item-name">${product.name}</span>
-            <span class="search-item-price">\$${product.price}</span>
+            <div class="search-item-info-container">
+                <span class="search-item-stock">Cant. ${product.stock}</span>
+                <span class="search-item-price">\$${product.price}</span>
+            </div>
         `;
         searchResults.appendChild(div);
     });

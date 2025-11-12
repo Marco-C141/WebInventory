@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
+from django.db.models import Prefetch
+import json
+
 
 from .models import Category, Product
 from .forms import CategoryForm, ProductForm
@@ -27,19 +30,40 @@ class CustomLoginView(LoginView):
 
 def welcome_page(request):
     """ This page will only show all the products in a grid """
-    categories = Category.objects.all()
-    products = {}
+    stocked_products_qs = Product.objects.filter(stock__gt=0)
 
+    products_list_for_json = []
+    for product in stocked_products_qs:
+        products_list_for_json.append({
+            "id": product.id,
+            "name": product.name,
+            "stock": product.stock,
+            "price": str(product.price),
+            "img": product.img.url
+        })
+    
+    products_json = json.dumps(products_list_for_json)
+
+
+    categories = Category.objects.prefetch_related(
+        Prefetch(
+            'product_set', # The default related name from Category to Product
+            queryset=stocked_products_qs, # Use our reusable filter
+            to_attr='stocked_products' # Store results in 'category.stocked_products'
+        )
+    ).all()
+
+    categorized_products_for_template = {}
     for category in categories:
-        products_in_category = Product.objects.filter(category=category)
-        products[category] = products_in_category
+        categorized_products_for_template[category] = category.stocked_products
+
 
     context = {
-        "products": products
+        "products": categorized_products_for_template, 
+        "products_json": products_json     
     }
 
-
-    return render(request, "management_app/index.html", {"products": products})
+    return render(request, "management_app/index.html", context)
 
 
 

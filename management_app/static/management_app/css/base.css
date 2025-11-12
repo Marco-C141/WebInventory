@@ -149,7 +149,7 @@ h1 {
 
     .product-card {
         /* Change width to create a two-column grid */
-        width: 50%;
+        width: 42%;
         margin: 1.5rem 4%; /* Adjust margin for the new layout */
         padding: 1rem 0;
     }
@@ -160,7 +160,7 @@ h1 {
 
     nav a {
         font-size: var(--text-size-small);
-        margin-right: 0.4rem;
+        margin-right: 0.7rem;
     }
 
     nav {
@@ -242,7 +242,7 @@ h1 {
 .alert-btn {
     text-decoration: none;
     font-size: calc(var(--text-size-big) * 1.1);
-    padding: 0.4rem 1.8rem;
+    padding: 0.5rem;
     border: solid 1px var(--text-color);
     border-radius: 5px;
     font-weight: bold;

@@ -33,6 +33,8 @@ ALLOWED_HOSTS = ["abarrotes-teo.onrender.com", "127.0.0.1", "0.0.0.0", "localhos
 CSRF_TRUSTED_ORIGINS = ["https://abarrotes-teo.onrender.com"]
 
 
+LOGOUT_REDIRECT_URL = 'index'
+
 # Application definition
 
 INSTALLED_APPS = [

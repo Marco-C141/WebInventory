@@ -7,6 +7,8 @@
         <title>Login</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'management_app/css/login.css' %}">
     </head>
@@ -26,6 +28,7 @@
 
                 <button type="submit">Enviar</button>
             </form>
+            <a id="login-button" href="{% url 'index' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
         </div>
     </body>
 </html>

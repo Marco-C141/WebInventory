@@ -29,7 +29,15 @@
 
         <section id="products-section">
             <h1>Productos disponibles</h1>
-            <hr>
+
+            <div id="container">
+                <div id="pos-container">
+                    <div id="search-section">
+                        <i class="fa fa-search" aria-hidden="true"></i><input type="text" id="product-search" placeholder="Buscar producto...">
+                        <div id="search-results"></div>
+                    </div>
+                </div>
+            </div>
 
             {% for category, products in products.items %}
             <div class="category-container">
@@ -94,4 +102,9 @@
             };
         }
     </script>
+    <script>
+        // Parse all products returned by the view
+        let allProducts = JSON.parse('{{ products_json|escapejs }}');
+    </script>
+    <script src="{% static 'management_app/js/pos.js' %}"></script>
 </html>

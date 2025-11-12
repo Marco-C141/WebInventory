@@ -4,6 +4,7 @@ h1 {
 
 #cards-container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .no-products-container {
@@ -27,9 +28,6 @@ h1 {
 */
 @media screen and (max-width: 768px) {
     #cards-container {
-        /* Stack the cards vertically instead of in a row */
-        flex-direction: column;
-        /* Center the cards horizontally in the column layout */
         align-items: center;
     }
 

@@ -227,6 +227,106 @@ hr {
     }
 }
 
+
+
+#container {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+#pos-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#search-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-section i {
+    position: absolute;
+    right: 7%;
+}
+
+#product-search {
+    width: 90%;
+    border-radius: 12px;
+    padding: 0.5rem;
+    letter-spacing: 0.1rem;
+}
+
+#product-search:focus {
+    outline: none;
+}
+
+
+#search-results {
+    position: absolute;
+    top: 100%;
+    left: 5%;
+    display: none;
+    width: 90%;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px 4px var(--shadow-dark-dim);
+    z-index: 100;
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    margin-bottom:0.6rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.search-item:last-child {
+    margin-bottom: 0;
+}
+
+.search-item-img-container {
+    width: 7%;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+}
+
+.search-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.search-item-name {
+    margin-left: 0.5rem;
+}
+
+.search-item-info-container {
+    position: absolute;
+    right: 2%;
+}
+
+.search-item-stock {
+    margin-right: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
 /*--------------------------------< About us >--------------------------------*/
 #about-section * {
     color: var(--bg-color);
@@ -287,10 +387,6 @@ hr {
 
 
 
-/*
-  These styles will ONLY apply on screens 768px wide or smaller.
-  This version creates a TWO-COLUMN grid for products on mobile.
-*/
 @media (max-width: 768px) {
 
     /*--------------------------------< Welcome block >--------------------------------*/
@@ -406,5 +502,60 @@ hr {
     #about-map iframe {
         /* Reduce height for smaller screens */
         height: 300px; 
+    }
+
+
+    #container {
+        /* Stack the POS/Search section and the product grid */
+        flex-direction: column;
+    }
+
+    #pos-container {
+        /* Ensure it takes full width when stacked */
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    /*--------------------------------< Search Bar >--------------------------------*/
+
+    #search-section i {
+        /* Adjust icon position for 90% width */
+        right: 7%;
+    }
+
+    #product-search {
+        /* Slightly larger padding for easier tapping */
+        padding: 0.75rem 1rem;
+    }
+
+    .search-item-img-container {
+        /* Make image container larger, 7% is too small */
+        width: 15%;
+        min-width: 40px; /* Ensure it's always tappable */
+    }
+
+    .search-item-name {
+        font-size: 0.9rem; /* Slightly smaller font */
+        margin-left: 0.75rem;
+    }
+
+    .search-item-info-container {
+        position: relative;
+    }
+
+    .search-item-info-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .search-item-info-container span {
+        /* Scale down fonts */
+        font-size: 0.85rem;
+    }
+
+    .search-item-stock {
+        /* Reduce margin to prevent cramping */
+        margin-right: 1rem;
     }
 }
